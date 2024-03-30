@@ -21,14 +21,15 @@ public:
         right = 0;
         count = 0;
         int ans2 = 0;
-        unordered_map<int, int> map1;
+
+        for(int i=0; i<nums.size(); i++) map[nums[i]] = 0;
 
         while(right < n){
 
-            if(map1[nums[right]]++ == 0) count++;
+            if(map[nums[right]]++ == 0) count++;
             
             while(count > k){
-                if(--map1[nums[left++]] == 0) count--;
+                if(--map[nums[left++]] == 0) count--;
             }
 
             ans2 += right - left + 1;
