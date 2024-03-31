@@ -12,8 +12,10 @@ public:
                 if(map1[t[i]] != s[i]) return false;
                 if(map2[s[i]] != t[i]) return false;
             }
-            map1[t[i]] = s[i];
-            map2[s[i]] = t[i];
+            else{
+                map1[t[i]] = s[i];
+                map2[s[i]] = t[i];
+            }
         }
 
         return true;
