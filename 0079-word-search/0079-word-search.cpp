@@ -1,74 +1,43 @@
 class Solution {
 public:
-    bool isValid(vector<vector<char>>& board, string word, int **visit, int i, int j){
-        if(i >= board.size() || j >= board[0].size() || i < 0 || j < 0) return false;
-        if(visit[i][j] == 1) return false;
-        if(board[i][j] != word[0]) return false;
-
-        return true;
+    bool isValid(vector<vector<char>>& board, string word, vector<vector<bool>>& visit, int i, int j, int idx){
+        return i >= 0 && i < board.size() && j >= 0 && j < board[0].size() && !visit[i][j] && board[i][j] == word[idx];
     }
 
-    bool helper(vector<vector<char>>& board, string word, int**visit, int i, int j){
+    bool helper(vector<vector<char>>& board, string word,vector<vector<bool>>& visit, int i, int j, int idx){
 
-        if(word.size() == 0){
+        if(word.size() == idx){
             return true;
         }
 
-        visit[i][j] = 1;
+        if(!isValid(board, word, visit, i, j, idx)) return false;
 
-        bool isTrue = false;
+        visit[i][j] = true;
 
-        //right
-        if(isValid(board, word, visit, i, j+1)){
-            isTrue = helper(board, word.substr(1), visit, i, j+1);
-            if(isTrue) return true;
-        }
+        bool isTrue = helper(board, word, visit, i, j+1, idx+1) ||
+                      helper(board, word, visit, i, j-1, idx+1) ||
+                      helper(board, word, visit, i-1, j, idx+1) ||
+                      helper(board, word, visit, i+1, j, idx+1);
 
-        // left
-        if(isValid(board, word, visit, i, j-1)){
-            isTrue = helper(board, word.substr(1), visit, i, j-1);
-            if(isTrue) return true;
-        }
-
-        //up
-        if(isValid(board, word, visit, i-1, j)){
-            isTrue = helper(board, word.substr(1), visit, i-1, j);
-            if(isTrue) return true;
-        }
-
-        // down
-        if(isValid(board, word, visit, i+1, j)){
-            isTrue = helper(board, word.substr(1), visit, i+1, j);
-            if(isTrue) return true;
-        }
-
-        visit[i][j] = 0;
+        visit[i][j] = false;
         return isTrue;
     }
 
     bool exist(vector<vector<char>>& board, string word) {
 
-        int **visit = new int*[board.size()];
-        for(int i=0; i<board.size(); i++){
+        int row = board.size();
+        int col = board[0].size();
+        vector<vector<bool>> visit(row, vector<bool>(col, false));
 
-            visit[i] = new int[board[i].size()];
-
-            for(int j=0; j<board[i].size(); j++){
-                visit[i][j] = 0;
-            }
-        }
-
-        bool isTrue = false;
         for(int i=0; i<board.size(); i++){
             for(int j=0; j<board[i].size(); j++){
-                if(board[i][j] == word[0]){
-                    isTrue = helper(board, word.substr(1), visit, i, j);
+                if(board[i][j] == word[0] && helper(board, word, visit, i, j, 0)){
+                    return true;
                 }
 
-                if(isTrue) return true;
             }
         }
 
-        return isTrue;
+        return false;
     }
 };
