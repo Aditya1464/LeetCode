@@ -1,7 +1,6 @@
 class Solution {
 public:
-
-    bool isValid(vector<vector<char>>& board, string word, vector<vector<int>> visit, int i, int j){
+    bool isValid(vector<vector<char>>& board, string word, int **visit, int i, int j){
         if(i >= board.size() || j >= board[0].size() || i < 0 || j < 0) return false;
         if(visit[i][j] == 1) return false;
         if(board[i][j] != word[0]) return false;
@@ -9,7 +8,7 @@ public:
         return true;
     }
 
-    bool helper(vector<vector<char>>& board, string word, vector<vector<int>> visit, int i, int j){
+    bool helper(vector<vector<char>>& board, string word, int**visit, int i, int j){
 
         if(word.size() == 0){
             return true;
@@ -48,10 +47,16 @@ public:
     }
 
     bool exist(vector<vector<char>>& board, string word) {
-        int m = board.size();
-        int n = board[0].size();
-        vector<vector<int>> visit(m, vector<int>(n, 0));
 
+        int **visit = new int*[board.size()];
+        for(int i=0; i<board.size(); i++){
+
+            visit[i] = new int[board[i].size()];
+
+            for(int j=0; j<board[i].size(); j++){
+                visit[i][j] = 0;
+            }
+        }
 
         bool isTrue = false;
         for(int i=0; i<board.size(); i++){
