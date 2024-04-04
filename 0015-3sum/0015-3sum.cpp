@@ -12,8 +12,9 @@ public:
 
             while(j < k){
                 vector<int> vec;
+                int sum = n + nums[j] + nums[k];
 
-                if(n + nums[j] + nums[k] == 0){
+                if(sum == 0){
                     vec.push_back(n);
                     vec.push_back(nums[j]);
                     vec.push_back(nums[k]);
@@ -24,7 +25,7 @@ public:
                     while(k-1 >= 0 && nums[k] == nums[k-1]) k--;
                     k--;
                 }
-                else if(n + nums[j] + nums[k] > 0){
+                else if(sum > 0){
                     while(k-1 >= 0 && nums[k] == nums[k-1]) k--;
                     k--;
                 }
@@ -39,61 +40,3 @@ public:
         return ans;
     }
 };
-
-
-// class Solution {
-// public:
-//     vector<vector<int>> threeSum(vector<int>& nums) {
-//         sort(nums.begin(), nums.end());
-//         int i=0;
-//         vector<vector<int>> ans;
-
-//             int n = nums[i];
-
-//             int j = i + 1;
-//             int k = nums.size() - 1;
-
-//             while(j < k){
-//                 vector<int> vec;
-
-//                 if(n + nums[j] + nums[k] == 0){
-//                     vec.push_back(n);
-//                     vec.push_back(nums[j]);
-//                     vec.push_back(nums[k]);
-//                     bool isExist = false;
-
-//                     // for(int l = 0; l<ans.size(); l++){
-//                     //     if(ans[l] == vec){
-//                     //         isExist = true;
-//                     //         break;
-//                     //     }
-//                     // }
-                    
-//                     if(!isExist) ans.push_back(vec);
-//                     while(nums[j] == nums[j+1]) j++;
-//                     j++;
-//                     while(nums[k] == nums[k-1]) k--;
-//                     k--;
-//                 }
-//                 else if(n + nums[j] + nums[k] > 0){
-//                     while(nums[k] == nums[k-1]) k--;
-//                     k--;
-//                 }
-//                 else {
-//                     while(nums[j] == nums[j+1]) j++;
-//                     j++;
-//                 }
-
-//                 if(j >= k){
-//                     i++;
-//                     if(i > nums.size() - 3) break;
-//                     n = nums[i];
-//                     j = i + 1;
-//                     k = nums.size() - 1;
-//                 }
-//             }
-//             i++;
-//         // }
-//         return ans;
-//     }
-// };
