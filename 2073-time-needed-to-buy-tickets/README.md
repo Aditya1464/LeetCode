@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/time-needed-to-buy-tickets/">2073. Time Needed to Buy Tickets</a></h2><h3>Easy</h3><hr><div><p>There are <code>n</code> people in a line queuing to buy tickets, where the <code>0<sup>th</sup></code> person is at the <strong>front</strong> of the line and the <code>(n - 1)<sup>th</sup></code> person is at the <strong>back</strong> of the line.</p>
+<h2><a href="https://leetcode.com/problems/time-needed-to-buy-tickets">2073. Time Needed to Buy Tickets</a></h2><h3>Easy</h3><hr><p>There are <code>n</code> people in a line queuing to buy tickets, where the <code>0<sup>th</sup></code> person is at the <strong>front</strong> of the line and the <code>(n - 1)<sup>th</sup></code> person is at the <strong>back</strong> of the line.</p>
 
 <p>You are given a <strong>0-indexed</strong> integer array <code>tickets</code> of length <code>n</code> where the number of tickets that the <code>i<sup>th</sup></code> person would like to buy is <code>tickets[i]</code>.</p>
 
@@ -9,7 +9,8 @@
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
 
-<pre><strong>Input:</strong> tickets = [2,3,2], k = 2
+<pre>
+<strong>Input:</strong> tickets = [2,3,2], k = 2
 <strong>Output:</strong> 6
 <strong>Explanation:</strong> 
 - In the first pass, everyone in the line buys a ticket and the line becomes [1, 2, 1].
@@ -19,7 +20,8 @@ The person at&nbsp;position 2 has successfully bought 2 tickets and it took 3 + 
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> tickets = [5,1,1,1], k = 0
+<pre>
+<strong>Input:</strong> tickets = [5,1,1,1], k = 0
 <strong>Output:</strong> 8
 <strong>Explanation:</strong>
 - In the first pass, everyone in the line buys a ticket and the line becomes [4, 0, 0, 0].
@@ -36,4 +38,3 @@ The person at&nbsp;position 0 has successfully bought 5 tickets and it took 4 + 
 	<li><code>1 &lt;= tickets[i] &lt;= 100</code></li>
 	<li><code>0 &lt;= k &lt; n</code></li>
 </ul>
-</div>
