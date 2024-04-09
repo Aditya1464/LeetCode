@@ -1,16 +1,12 @@
 class Solution {
 public:
     int findNonMinOrMax(vector<int>& nums) {
-        
-        int max = 0, min = 101;
+        int maxNum = std::ranges::max(nums);
+        int minNum = std::ranges::min(nums);
+        cout << minNum;
 
         for(auto i : nums){
-            if(i > max) max = i;
-            if(i < min) min = i;
-        }
-
-        for(auto i : nums){
-            if(i != min && i != max) return i;
+            if(i != minNum && i != maxNum) return i;
         }
 
         return -1;
