@@ -17,7 +17,7 @@ public:
         ListNode* temp1 = head;
         ListNode* temp2 = head->next;
 
-        temp1->next = swapPairs(temp2->next);
+        temp1->next = swapPairs(head->next->next);
         temp2->next = temp1;
         return temp2;
     }
