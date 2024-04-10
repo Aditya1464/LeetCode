@@ -15,11 +15,10 @@ public:
         if(head == nullptr || head->next == nullptr) return head;
 
         ListNode* temp1 = head;
-        head = head->next;
-        temp1->next = head->next;
-        head->next = temp1;
+        ListNode* temp2 = head->next;
 
-        temp1->next = swapPairs(temp1->next);
-        return head;
+        temp1->next = swapPairs(temp2->next);
+        temp2->next = temp1;
+        return temp2;
     }
 };
