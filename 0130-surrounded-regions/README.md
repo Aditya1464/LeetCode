@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/surrounded-regions">130. Surrounded Regions</a></h2><h3>Medium</h3><hr><p>You are given an <code>m x n</code> matrix <code>board</code> containing <strong>letters</strong> <code>&#39;X&#39;</code> and <code>&#39;O&#39;</code>, <strong>capture regions</strong> that are <strong>surrounded</strong>:</p>
+<h2><a href="https://leetcode.com/problems/surrounded-regions/?envType=study-plan-v2&envId=top-interview-150">130. Surrounded Regions</a></h2><h3>Medium</h3><hr><p>You are given an <code>m x n</code> matrix <code>board</code> containing <strong>letters</strong> <code>&#39;X&#39;</code> and <code>&#39;O&#39;</code>, <strong>capture regions</strong> that are <strong>surrounded</strong>:</p>
 
 <ul>
 	<li><strong>Connect</strong>: A cell is connected to adjacent cells horizontally or vertically.</li>
@@ -6,7 +6,7 @@
 	<li><strong>Surround</strong>: The region is surrounded with <code>&#39;X&#39;</code> cells if you can <strong>connect the region </strong>with <code>&#39;X&#39;</code> cells and none of the region cells are on the edge of the <code>board</code>.</li>
 </ul>
 
-<p>A <strong>surrounded region is captured</strong> by replacing all <code>&#39;O&#39;</code>s with <code>&#39;X&#39;</code>s in the input matrix <code>board</code>.</p>
+<p>To capture a <strong>surrounded region</strong>, replace all <code>&#39;O&#39;</code>s with <code>&#39;X&#39;</code>s <strong>in-place</strong> within the original board. You do not need to return anything.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
