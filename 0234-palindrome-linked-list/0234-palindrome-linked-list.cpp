@@ -21,11 +21,12 @@ public:
 
         ListNode* temp = slow->next;
         ListNode* rev = nullptr;
+        ListNode* next = nullptr;
         while(temp){
-            ListNode* newN = new ListNode(temp->val);
-            newN->next = rev;
-            rev = newN;
-            temp = temp->next;
+            next = temp->next;
+            temp->next = rev;
+            rev = temp;
+            temp = next;
         }
 
         slow->next = rev;
