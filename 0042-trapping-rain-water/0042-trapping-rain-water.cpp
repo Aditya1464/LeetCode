@@ -1,59 +1,41 @@
 class Solution {
 public:
-    int helper(vector<int> height, int i, int j){
-        int k = min(height[i], height[j]);
-        int ans = 0;
-
-        for(int m = i + 1; m < j; m++){
-            ans += k - height[m];
-        }
-        return ans;
-    }
-
     int trap(vector<int>& height) {
-        
-        int i = 0;
-        int j = height.size() - 1;
-
-        while(i+1 < height.size() && height[i+1] >= height[i]){
-            i++;
-        }
-
-        while(j-1 >= 0 && height[j-1] >= height[j]){
-            j--;
-        }
-
-        cout << i << " " << j << endl;
-
-        int secIdx = i + 1;
-        int k = i + 1;
+        int n = height.size();
+        int i=0;
+        while(i < n && height[i] == 0) i++;
+        if(i >= n) return 0;
+        int ref = height[i];
+        i++;
         int ans = 0;
+        int temp = 0;
 
-        while(i < j && k <= j){
-
-            if(height[k] >= height[i]){
-                ans += helper(height, i, k);
-                cout << ans << " " << "t" << " ";
-                i = k;
-                k = i + 1;
-                secIdx = k;
+        while(i<n){
+            if(height[i] >= ref){
+                // cout << temp << " " << height[i] << endl;
+                ans += temp;
+                ref = height[i];
+                temp = 0;
             }
-            else{
+            else temp += ref - height[i];
+            i++;
+        } 
 
-                if(height[secIdx] <= height[k]){
-                    secIdx = k;
-                }
-                k++;
+        i = n-1;
+        while(i >= 1 && height[i] < height[i-1]) i--;
+        if(i <= 0) return ans;
+        int ref2 = height[i];
+        // i--;
+        temp = 0;
+        while(i > 0 && height[i] != ref){
+            if(height[i] <= ref2){
+                temp += ref2 - height[i];
             }
-
-            if(k > j && height[k-1] < height[i]){
-                ans += helper(height, i, secIdx);
-                cout << ans << " " << "t" << " ";
-                i = secIdx;
-                k = i + 1;
-                secIdx = k;
-            }
+            else ref2 = height[i];
+            i--;
         }
+
+        ans += temp;
 
         return ans;
     }
