@@ -14,20 +14,12 @@ public:
         ListNode* slow = head;
         ListNode* fast = head;
 
-        while(fast->next->next){
-            slow = slow->next;
-            fast = fast->next->next;
-        }
-
-        slow = slow->next;
-
-        int twinSum = 0;
-
         ListNode* rev = new ListNode();
-        ListNode* temp = head;
+        // ListNode* temp = head;
 
-        while(temp != slow){
-           ListNode* newNode = new ListNode(temp->val);
+        while(fast->next){
+
+            ListNode* newNode = new ListNode(slow->val);
            if(rev->val == 0){
             rev = newNode;
            }
@@ -36,8 +28,12 @@ public:
             rev = newNode;
            }
 
-           temp = temp->next;
+           slow = slow->next;
+            if(fast->next->next) fast = fast->next->next;
+            else break;
         }
+
+        int twinSum = 0;
 
         while(slow){
             twinSum = max(twinSum, slow->val + rev->val);
