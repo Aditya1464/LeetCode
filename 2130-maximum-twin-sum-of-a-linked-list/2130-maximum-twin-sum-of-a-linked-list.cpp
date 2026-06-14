@@ -26,7 +26,7 @@ public:
         ListNode* rev = new ListNode();
         ListNode* temp = head;
 
-        while(temp){
+        while(temp != slow){
            ListNode* newNode = new ListNode(temp->val);
            if(rev->val == 0){
             rev = newNode;
@@ -39,9 +39,9 @@ public:
            temp = temp->next;
         }
 
-        while(head != slow){
-            twinSum = max(twinSum, head->val + rev->val);
-            head = head->next;
+        while(slow){
+            twinSum = max(twinSum, slow->val + rev->val);
+            slow = slow->next;
             rev = rev->next;
         }
 
