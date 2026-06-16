@@ -17,4 +17,12 @@ LeetCode questions solution
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [2130-maximum-twin-sum-of-a-linked-list](https://github.com/Aditya1464/LeetCode/tree/main/2130-maximum-twin-sum-of-a-linked-list/) | Medium |
+## String
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [3612-process-string-with-special-operations-i](https://github.com/Aditya1464/LeetCode/tree/main/3612-process-string-with-special-operations-i/) | Medium |
+## Simulation
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [3612-process-string-with-special-operations-i](https://github.com/Aditya1464/LeetCode/tree/main/3612-process-string-with-special-operations-i/) | Medium |
 <!---LeetCode Topics End-->
